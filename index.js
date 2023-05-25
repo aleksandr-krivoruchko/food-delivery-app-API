@@ -27,7 +27,7 @@ mongoose
   .connect(DB_HOST)
   .then(() => console.log("DB launched"))
   .then(() =>
-    app.listen(3001, console.log(`Server has been started on port ${PORT}...`))
+    app.listen(3001, console.log(`Server started on port ${PORT}...`))
   )
   .catch((e) => {
     console.log(e.message);

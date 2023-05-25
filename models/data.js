@@ -12,11 +12,13 @@ const productSchema = Schema({
   quantity: Number,
 });
 
-const todoSchema = Schema({
-  title: String,
-  completed: Boolean,
+const orderSchema = Schema({
+  buyerInfo: Object,
+  orderInfo: Object,
 });
 
 export const Shop = model("shop", shopSchema);
-export const Product = model("product", productSchema);
-export const Todo = model("todo", todoSchema);
+export const Mcd = model("mcd-product", productSchema);
+export const Kfc = model("kfc-product", productSchema);
+export const Atb = model("atb-product", productSchema);
+export const Order = model("order", orderSchema);

@@ -1,21 +1,26 @@
-import { Shop, Product, Todo } from "../models/data.js";
+import { Shop, Mcd, Kfc, Atb, Order } from "../models/data.js";
 
 export async function getShops(req, res) {
   const data = await Shop.find({});
   res.json(data);
 }
 
-export async function getProducts(req, res) {
-  const data = await Product.find({});
+export async function getMcdProducts(req, res) {
+  const data = await Mcd.find({});
   res.json(data);
 }
 
-export async function getTodos(req, res) {
-  const data = await Todo.find({});
+export async function getKfcProducts(req, res) {
+  const data = await Kfc.find({});
   res.json(data);
 }
 
-export function getDataById(req, res) {
-  const dataById = data.shops.find((item) => item.id == req.params.id);
-  res.json(dataById);
+export async function getAtbProducts(req, res) {
+  const data = await Atb.find({});
+  res.json(data);
+}
+
+export async function createOrder(req, res) {
+  const data = await Order.create(req.body);
+  res.status(201).json(data);
 }

@@ -1,19 +1,17 @@
 import express from "express";
 import {
   getShops,
-  getProducts,
-  getDataById,
-  getTodos,
+  getMcdProducts,
+  getKfcProducts,
+  getAtbProducts,
+  createOrder,
 } from "../controllers/data.js";
 const router = express.Router();
 
 router.get("/shops", getShops);
-// router.get("/McDonalds-products", getProducts);
-router.get("/products", getProducts);
-// router.get("/ATB-products", getProducts);
-
-router.get("/todos", getTodos);
-
-router.get("/data/:id", getDataById);
+router.get("/mcd-products", getMcdProducts);
+router.get("/kfc-products", getKfcProducts);
+router.get("/atb-products", getAtbProducts);
+router.post("/orders", createOrder);
 
 export default router;
