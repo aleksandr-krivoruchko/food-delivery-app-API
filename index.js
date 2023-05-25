@@ -1,26 +1,35 @@
 import express from "express";
 import path from "path";
-import routes from "./routes/products.js";
+import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import router from "./routes/data.js";
 
-const __dirname = path.resolve();
+dotenv.config();
 
-const PORT = process.env.PORT ?? 3001;
+const { DB_HOST, PORT = 3001 } = process.env;
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, "static")));
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(routes);
-
+app.use(router);
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
-
 app.use((err, req, res, next) => {
   const { status = 500, message = "Server error" } = err;
   res.status(status).json({ message });
 });
 
-app.listen(3001, () => {
-  console.log(`Server has been started on port ${PORT}...`);
-});
+mongoose
+  .connect(DB_HOST)
+  .then(() => console.log("DB launched"))
+  .then(() =>
+    app.listen(3001, console.log(`Server has been started on port ${PORT}...`))
+  )
+  .catch((e) => {
+    console.log(e.message);
+    process.exit(1);
+  });
