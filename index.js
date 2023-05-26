@@ -1,5 +1,4 @@
 import express from "express";
-import path from "path";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -25,7 +24,7 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(DB_HOST)
-  .then(() => console.log("DB launched"))
+  .then(() => console.log("DB started"))
   .then(() =>
     app.listen(3001, console.log(`Server started on port ${PORT}...`))
   )
