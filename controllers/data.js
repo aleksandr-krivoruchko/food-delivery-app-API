@@ -20,6 +20,11 @@ export async function getAtbProducts(req, res) {
   res.json(data);
 }
 
+export async function getOrders(req, res) {
+  const data = await Order.find({});
+  res.json(data);
+}
+
 export async function createOrder(req, res) {
   const data = await Order.create(req.body);
   res.status(201).json(data);
