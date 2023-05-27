@@ -1,12 +1,10 @@
 # Web server for the food delivery application
 
-API for a single page web application for a simple online grocery store. Provides a list of stores, products available in it and customer orders
+API for a single page web application for a simple online grocery store. Provides a list of stores, products available in it and customer orders.
+The project was created on "Node.js" using the server on the "Express" framework connected to the "MongoDB" database.
+Source code here
+[SOURCE CODE](https://github.com/aleksandr-krivoruchko/food-delivery-app-API.git)
 
-The project was created on "Node.js" using the server on the "Express" framework
-connected to the "MongoDB" database.
-Source code 
-[here](https://github.com/aleksandr-krivoruchko/food-delivery-app-API.git)
----
 ## Application launch instructions
 
 Database deployed 
@@ -16,7 +14,7 @@ Database deployed
 - The `/kfc-products` the endpoint is used to get the list of products for KFC shop
 - The `/atb-products` the endpoint is used to get the list of products for ATB shop
 - The `/orders` endpoint is used to send orders
----
+
 ### Data Information
 
 	In the database, information about stores, products and orders is stored as an object.
